@@ -6,6 +6,7 @@ class Layer:
     def __init__(self, size: tuple):
         self.size = size
         self.training = True
+        self.shape = (0, )
     
     def setPreviousLayer(self, layer: Layer):
         self.prev_layer = layer
@@ -19,7 +20,7 @@ class Layer:
             Any allocation of resources, and also use `self.prev_layer` 
             to compute the actual parameter sizes needed 
         """
-        pass
+        raise NotImplementedError
 
     def compute(self, input):
         """
@@ -27,14 +28,20 @@ class Layer:
             This should be overriden by the sub classes
             This should use `self.training` to update parameters accordingly
         """
-        pass
+        raise NotImplementedError
     
     def dump(self):
         """
             Must **implement** for checkpointing. 
             Return a Pickle object
         """
-        pass
+        raise NotImplementedError
+    
+    def getOutSize(self):
+        """
+            returns the size of output blob as `tuple`
+        """
+        raise self.shape
 
     @staticmethod
     def restore(pkl):
@@ -42,4 +49,4 @@ class Layer:
             Must **implement** for checkpointing
             Return a `Layer` or `Layer`-like object using the pkl object
         """
-        pass
+        raise NotImplementedError

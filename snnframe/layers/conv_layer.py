@@ -6,7 +6,10 @@ class ConvLayer(Layer):
 
         TODO: Update Description while implementing 
     """
-    def __init__(self, window_size, stride, firing_threshold):
+    def __init__(self, neuron_model, window_size, stride):
+        self.neuron_model = neuron_model
         self.window_size = window_size
         self.stride = stride
-        self.firing_threshold = firing_threshold
+    
+    def initializeLayer(self):
+        
