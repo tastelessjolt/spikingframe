@@ -41,7 +41,7 @@ class Layer:
         """
             returns the size of output blob as `tuple`
         """
-        raise self.shape
+        return self.shape
 
     @staticmethod
     def restore(pkl):

@@ -12,4 +12,4 @@ class ConvLayer(Layer):
         self.stride = stride
     
     def initializeLayer(self):
-        
+        raise NotImplementedError
